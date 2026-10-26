@@ -1,0 +1,86 @@
+data ../DPNN/data/lucy.xyz  n=1018219  kmax=4  threads=48
+unique points 1018219, DPNN DAG 9.61s
+
+order        cells       /n    tri edges   hidden  removed     tri s    next s    DAG pa      DAG MB     sets MB
+    1      1018219     1.00      8010070        0        0     12.63      0.42     17.10       702.9         3.9
+      Cx(u) for k=2: mean 16.7 (8.37 k), median 16, p90 22, p99 34, max 827; 16020140 LPs, 6.2s
+    2      8010070     7.87     57578204        0        0    130.17      6.07     15.58      5067.0        61.1
+    3     22621785    22.22    159357245        0        0    115.69     15.91         -           -       258.9
+      Cx(u) for k=4: mean 22.4 (5.60 k), median 21, p90 29, p99 46, max 1137; 177421192 LPs, 57.2s
+    4     44355298    43.56    311492362        0        0    162.32      0.00         -           -       676.8
+order-1..4 build: 444.9s (orders with a DAG: sequential BRIO insertion; others: CGAL parallel insertion (TBB))
+candidate lists C(u) for k=2: avg 16.7 entries, 523.9 MB, 0.68s
+candidate lists C(u) for k=4: avg 39.8 entries, 1242.1 MB, 8.54s
+kd-tree (nanoflann, leaf 10): 0.28s, 16.3 MB | Delaunay adjacency: 492.8 MB (avg degree 15.73) | successor lists: 534.9 MB
+NN for the list methods: RefinedDPNN (BRIO, 2 layers) 41.4s, 7464.8 MB
+
+== box2x (1000000 queries), k = 1   [order-1 diagram: 1018219 cells, DAG 702.9 MB + sets 3.9 MB; C(u) - MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  8.9092   20000
+Delaunay best-first                1.00              0.9735   20000  (+ the NN query)
+successor lists                  333.87              1.5113   20000
+order-k DPNN, set                347.57     16.3     1.2376   20000
+order-k DPNN, sorted                                 1.3185   
+order-k DPNN batch16, set                            1.1727   20000
+
+== box2x (1000000 queries), k = 2   [order-2 diagram: 8010070 cells, DAG 5067.0 MB + sets 61.1 MB; C(u) 523.9 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                 10.3889   20000
+Delaunay best-first               42.40              1.4431   20000  (+ the NN query)
+successor lists                  372.63              1.8662   20000
+NN + C(u) scan                    42.40              1.2716   20000  (+ the NN query)
+NN batch16 + C(u) scan                               0.9781   
+NN + Cx(u) scan                   42.39              1.2953   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              0.9798   
+kd-tree NN + Cx(u) scan                              9.6066   20000
+order-k DPNN, set                398.04     18.2     1.7605   20000
+order-k DPNN, sorted                                 1.8899   
+order-k DPNN batch16, set                            1.5397   20000
+
+== box2x (1000000 queries), k = 4   [order-4 diagram: 44355298 cells, DAG - MB + sets 676.8 MB; C(u) 1242.1 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                 12.0205   20000
+Delaunay best-first               79.63              2.3832   20000  (+ the NN query)
+successor lists                  415.42              2.5997   20000
+NN + C(u) scan                   105.51              1.7000   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.3413   
+NN + Cx(u) scan                   62.11              1.4596   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.1659   
+kd-tree NN + Cx(u) scan                             10.0832   20000
+
+== near (1000000 queries), k = 1   [order-1 diagram: 1018219 cells, DAG 702.9 MB + sets 3.9 MB; C(u) - MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  1.4214   20000
+Delaunay best-first                1.00              1.5565   20000  (+ the NN query)
+successor lists                  238.22              2.2868   20000
+order-k DPNN, set                232.89     16.0     1.7226   20000
+order-k DPNN, sorted                                 1.9248   
+order-k DPNN batch16, set                            1.4415   20000
+
+== near (1000000 queries), k = 2   [order-2 diagram: 8010070 cells, DAG 5067.0 MB + sets 61.1 MB; C(u) 523.9 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  1.6447   20000
+Delaunay best-first               16.94              2.2230   20000  (+ the NN query)
+successor lists                  255.44              2.5836   20000
+NN + C(u) scan                    16.94              2.0622   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.3601   
+NN + Cx(u) scan                   16.94              2.1730   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.3497   
+kd-tree NN + Cx(u) scan                              2.1925   20000
+order-k DPNN, set                304.54     17.0     2.5124   20000
+order-k DPNN, sorted                                 2.7210   
+order-k DPNN batch16, set                            2.0151   20000
+
+== near (1000000 queries), k = 4   [order-4 diagram: 44355298 cells, DAG - MB + sets 676.8 MB; C(u) 1242.1 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  1.9173   20000
+Delaunay best-first               31.16              3.0305   20000  (+ the NN query)
+successor lists                  277.14              3.2198   20000
+NN + C(u) scan                    40.14              2.4015   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.7029   
+NN + Cx(u) scan                   22.69              2.1484   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.4919   
+kd-tree NN + Cx(u) scan                              2.2616   20000
+
+ALL CHECKS PASSED
+wall 1399.22 s, peak RSS 65168556 KB

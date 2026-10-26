@@ -1,0 +1,147 @@
+data ../DPNN/data/bunny.xyz  n=72911  kmax=8  threads=48
+unique points 72911, DPNN DAG 0.64s
+
+order        cells       /n    tri edges   hidden  removed     tri s    next s    DAG pa      DAG MB     sets MB
+    1        72911     1.00       573200        0        0      0.88      0.02     16.66        49.1         0.3
+      Cx(u) for k=2: mean 16.7 (8.36 k), median 16, p90 22, p99 34, max 116; 1146400 LPs, 0.3s
+    2       573200     7.86      4095971        0        0     14.42      0.24     15.43       359.3         4.4
+    3      1604208    22.00     11263950        0        0     11.68      0.78         -           -        18.4
+      Cx(u) for k=4: mean 22.4 (5.59 k), median 21, p90 30, p99 47, max 167; 12530952 LPs, 3.1s
+    4      3132738    42.97     21934685        0        0     75.31      1.94     15.10      1923.5        47.8
+    5      5148311    70.61     36043361        0        0     17.74      4.64         -           -        98.2
+      Cx(u) for k=6: mean 29.6 (4.93 k), median 28, p90 39, p99 61, max 209; 46025970 LPs, 9.6s
+    6      7670995   105.21     53668317        0        0    169.04      6.66     15.06      4699.5       175.6
+    7     10688836   146.60     74761162        0        0     54.80      8.78         -           -       285.4
+      Cx(u) for k=8: mean 35.5 (4.43 k), median 34, p90 47, p99 73, max 239; 113543376 LPs, 21.4s
+    8     14192922   194.66     99265233        0        0    301.00      0.00     15.05      8688.4       433.1
+order-1..8 build: 673.0s (orders with a DAG: sequential BRIO insertion; others: CGAL parallel insertion (TBB))
+candidate lists C(u) for k=2: avg 16.7 entries, 37.5 MB, 0.05s
+candidate lists C(u) for k=4: avg 39.6 entries, 88.4 MB, 0.58s
+candidate lists C(u) for k=6: avg 60.0 entries, 133.8 MB, 3.18s
+candidate lists C(u) for k=8: avg 79.6 entries, 177.4 MB, 10.17s
+kd-tree (nanoflann, leaf 10): 0.02s, 1.2 MB | Delaunay adjacency: 35.3 MB (avg degree 15.72) | successor lists: 37.3 MB
+
+== box2x (1000000 queries), k = 1   [order-1 diagram: 72911 cells, DAG 49.1 MB + sets 0.3 MB; C(u) - MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  5.0872   20000
+Delaunay best-first                1.00              0.7926   20000  (+ the NN query)
+successor lists                  185.05              0.9075   20000
+order-k DPNN, set                183.75     12.2     0.7536   20000
+order-k DPNN, sorted                                 0.7821   
+order-k DPNN batch16, set                            0.6942   20000
+
+== box2x (1000000 queries), k = 2   [order-2 diagram: 573200 cells, DAG 359.3 MB + sets 4.4 MB; C(u) 37.5 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  5.5461   20000
+Delaunay best-first               21.31              1.1597   20000  (+ the NN query)
+successor lists                  207.75              1.1379   20000
+NN + C(u) scan                    21.31              1.0606   20000  (+ the NN query)
+NN batch16 + C(u) scan                               0.9325   
+NN + Cx(u) scan                   21.31              1.0762   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              0.9512   
+order-k DPNN, set                250.35     16.0     1.2189   20000
+order-k DPNN, sorted                                 1.3156   
+order-k DPNN batch16, set                            1.0874   20000
+
+== box2x (1000000 queries), k = 4   [order-4 diagram: 3132738 cells, DAG 1923.5 MB + sets 47.8 MB; C(u) 88.4 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  6.2176   20000
+Delaunay best-first               39.45              1.8016   20000  (+ the NN query)
+successor lists                  235.93              1.7824   20000
+NN + C(u) scan                    50.93              1.4044   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.2165   
+NN + Cx(u) scan                   29.67              1.2361   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.0839   
+order-k DPNN, set                291.91     15.7     1.7124   20000
+order-k DPNN, sorted                                 1.8757   
+order-k DPNN batch16, set                            1.4151   20000
+
+== box2x (1000000 queries), k = 6   [order-6 diagram: 7670995 cells, DAG 4699.5 MB + sets 175.6 MB; C(u) 133.8 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  6.7999   20000
+Delaunay best-first               53.10              2.5461   20000  (+ the NN query)
+successor lists                  257.99              2.3058   20000
+NN + C(u) scan                    77.92              1.6350   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.4494   
+NN + Cx(u) scan                   39.08              1.4797   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.2252   
+order-k DPNN, set                329.51     18.0     2.0813   20000
+order-k DPNN, sorted                                 2.2422   
+order-k DPNN batch16, set                            1.6489   20000
+
+== box2x (1000000 queries), k = 8   [order-8 diagram: 14192922 cells, DAG 8688.4 MB + sets 433.1 MB; C(u) 177.4 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  7.3835   20000
+Delaunay best-first               64.82              2.9143   20000  (+ the NN query)
+successor lists                  276.92              2.8220   20000
+NN + C(u) scan                   103.43              1.9105   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.6942   
+NN + Cx(u) scan                   46.83              1.5827   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.3497   
+order-k DPNN, set                330.12     18.8     2.1428   20000
+order-k DPNN, sorted                                 2.4561   
+order-k DPNN batch16, set                            1.7451   20000
+
+== near (1000000 queries), k = 1   [order-1 diagram: 72911 cells, DAG 49.1 MB + sets 0.3 MB; C(u) - MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  0.4957   20000
+Delaunay best-first                1.00              1.0170   20000  (+ the NN query)
+successor lists                  172.50              1.0844   20000
+order-k DPNN, set                171.17     11.7     0.9096   20000
+order-k DPNN, sorted                                 1.0120   
+order-k DPNN batch16, set                            0.8023   20000
+
+== near (1000000 queries), k = 2   [order-2 diagram: 573200 cells, DAG 359.3 MB + sets 4.4 MB; C(u) 37.5 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  0.6107   20000
+Delaunay best-first               16.76              1.4576   20000  (+ the NN query)
+successor lists                  189.14              1.2802   20000
+NN + C(u) scan                    16.76              1.3299   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.0629   
+NN + Cx(u) scan                   16.76              1.3520   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.0724   
+order-k DPNN, set                239.34     16.3     1.5796   20000
+order-k DPNN, sorted                                 1.8730   
+order-k DPNN batch16, set                            1.3661   20000
+
+== near (1000000 queries), k = 4   [order-4 diagram: 3132738 cells, DAG 1923.5 MB + sets 47.8 MB; C(u) 88.4 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  0.7967   20000
+Delaunay best-first               30.63              2.1995   20000  (+ the NN query)
+successor lists                  210.34              1.7743   20000
+NN + C(u) scan                    39.60              1.6059   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.4091   
+NN + Cx(u) scan                   22.39              1.4657   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.1854   
+order-k DPNN, set                287.52     15.4     2.0440   20000
+order-k DPNN, sorted                                 2.2794   
+order-k DPNN batch16, set                            1.6716   20000
+
+== near (1000000 queries), k = 6   [order-6 diagram: 7670995 cells, DAG 4699.5 MB + sets 175.6 MB; C(u) 133.8 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  0.9892   20000
+Delaunay best-first               41.13              2.8128   20000  (+ the NN query)
+successor lists                  227.28              2.4477   20000
+NN + C(u) scan                    60.02              1.9109   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.6513   
+NN + Cx(u) scan                   29.64              1.5999   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.3491   
+order-k DPNN, set                318.93     17.8     2.4407   20000
+order-k DPNN, sorted                                 2.7531   
+order-k DPNN batch16, set                            1.9805   20000
+
+== near (1000000 queries), k = 8   [order-8 diagram: 14192922 cells, DAG 8688.4 MB + sets 433.1 MB; C(u) 177.4 MB]
+method                       dist/query    jumps   us/query   exact vs brute force (of 20000)
+kd-tree (nanoflann)                                  1.1781   20000
+Delaunay best-first               50.40              3.3226   20000  (+ the NN query)
+successor lists                  242.21              2.8021   20000
+NN + C(u) scan                    79.58              2.1612   20000  (+ the NN query)
+NN batch16 + C(u) scan                               1.8461   
+NN + Cx(u) scan                   35.52              1.7005   20000  (+ the NN query)
+NN batch16 + Cx(u) scan                              1.4572   
+order-k DPNN, set                326.06     18.6     2.5926   20000
+order-k DPNN, sorted                                 2.9506   
+order-k DPNN batch16, set                            2.1027   20000
+
+ALL CHECKS PASSED
+wall 1733.89 s, peak RSS 35988708 KB

@@ -1,0 +1,33 @@
+uniform   n=300 k=1:    300 cells (  1.00 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=2:   2107 cells (  7.02 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=3:   5564 cells ( 18.55 n) | fp-LP thin   0 empty   1 -> exact: full-dim   1, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=4:  10513 cells ( 35.04 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=5:  16924 cells ( 56.41 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=6:  24671 cells ( 82.24 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=7:  33682 cells (112.27 n) | fp-LP thin   0 empty   1 -> exact: full-dim   1, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+uniform   n=300 k=8:  43851 cells (146.17 n) | fp-LP thin   0 empty   4 -> exact: full-dim   4, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=1:    300 cells (  1.00 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=2:   2043 cells (  6.81 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=3:   5382 cells ( 17.94 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=4:  10146 cells ( 33.82 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=5:  16352 cells ( 54.51 n) | fp-LP thin   2 empty   0 -> exact: full-dim   2, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=6:  23812 cells ( 79.37 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=7:  32564 cells (108.55 n) | fp-LP thin   1 empty   1 -> exact: full-dim   2, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+clusters  n=300 k=8:  42506 cells (141.69 n) | fp-LP thin   1 empty   0 -> exact: full-dim   1, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+sphere    n=200 k=1:    200 cells (  1.00 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+sphere    n=200 k=2:    965 cells (  4.83 n) | fp-LP thin 371 empty   0 -> exact: full-dim 371, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 110 + 110  ok
+sphere    n=200 k=3:   1760 cells (  8.80 n) | fp-LP thin 776 empty   0 -> exact: full-dim 493, measure-zero 283, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 319 + 222  ok
+sphere    n=200 k=4:   2048 cells ( 10.24 n) | fp-LP thin 678 empty   0 -> exact: full-dim 377, measure-zero 301, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 200 + 207  ok
+sphere    n=200 k=5:   2499 cells ( 12.49 n) | fp-LP thin 747 empty   0 -> exact: full-dim 407, measure-zero 340, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 226 + 231  ok
+sphere    n=200 k=6:   2858 cells ( 14.29 n) | fp-LP thin 728 empty   0 -> exact: full-dim 363, measure-zero 365, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 213 + 245  ok
+grid~     n=216 k=1:    216 cells (  1.00 n) | fp-LP thin   0 empty   0 -> exact: full-dim   0, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+grid~     n=216 k=2:   1530 cells (  7.08 n) | fp-LP thin   0 empty  48 -> exact: full-dim  48, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+grid~     n=216 k=3:   3800 cells ( 17.59 n) | fp-LP thin   0 empty 141 -> exact: full-dim 141, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+grid~     n=216 k=4:   7346 cells ( 34.01 n) | fp-LP thin   0 empty 290 -> exact: full-dim 290, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+grid~     n=216 k=5:  11304 cells ( 52.33 n) | fp-LP thin   1 empty 509 -> exact: full-dim 510, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+grid~     n=216 k=6:  16344 cells ( 75.67 n) | fp-LP thin   1 empty 798 -> exact: full-dim 799, measure-zero   0, empty   0 | query k-sets missing 0, DPNN wrong 0 / 20000 | hidden 0 + 0  ok
+ALL TESTS PASSED
+
+real	5m14.233s
+user	10m34.626s
+sys	0m0.603s

@@ -1,0 +1,21 @@
+data uniform:100000  n=100000  kmax=8  threads=48
+unique points 100000, DPNN DAG 0.86s
+
+order        cells       /n    tri edges   hidden  removed     tri s    next s    DAG pa      DAG MB     sets MB
+    1       100000     1.00       772657        0        0      1.08      0.02     15.87           -         0.4
+    2       772657     7.73      5478545        0        0      1.67      0.34         -           -         5.9
+      C(u) for k=2: mean 16.5 (8.23 k), median 16, p90 21, p99 26, max 55; total 50.2 MB as 32-byte entries (0.0s)
+    3      2115834    21.16     14876929        0        0      4.73      0.98         -           -        24.2
+      C(u) for k=3: mean 27.7 (9.22 k), median 27, p90 33, p99 41, max 90; total 84.4 MB as 32-byte entries (0.2s)
+    4      4126916    41.27     28955063        0        0     11.10      2.32         -           -        63.0
+      C(u) for k=4: mean 37.9 (9.46 k), median 37, p90 44, p99 55, max 128; total 115.5 MB as 32-byte entries (0.6s)
+    5      6808353    68.08     47719218        0        0     14.18      4.66         -           -       129.9
+      C(u) for k=5: mean 47.6 (9.52 k), median 47, p90 55, p99 70, max 153; total 145.2 MB as 32-byte entries (1.4s)
+    6     10156664   101.57     71153184        0        0     21.77      7.41         -           -       232.5
+      C(u) for k=6: mean 57.0 (9.51 k), median 56, p90 65, p99 85, max 182; total 174.0 MB as 32-byte entries (3.2s)
+    7     14170574   141.71     99248702        0        0     31.08     11.05         -           -       378.4
+      C(u) for k=7: mean 66.3 (9.47 k), median 66, p90 75, p99 99, max 205; total 202.2 MB as 32-byte entries (6.5s)
+    8     18851498   188.51    132000895        0        0     44.47      0.00         -           -       575.3
+      C(u) for k=8: mean 75.3 (9.42 k), median 75, p90 85, p99 114, max 233; total 229.9 MB as 32-byte entries (11.5s)
+order-1..8 build: 156.9s (orders with a DAG: sequential BRIO insertion; others: CGAL parallel insertion (TBB))
+wall 189.92 s, peak RSS 30996200 KB

@@ -1,0 +1,14 @@
+data ../DPNN/data/bunny.xyz  n=72911  kmax=8  threads=48
+unique points 72911, DPNN DAG 0.64s
+
+order        cells       /n    tri edges   hidden  removed     tri s    next s    DAG pa      DAG MB     sets MB
+    1        72911     1.00       573200        0        0      1.13      0.04     16.66           -         0.3
+    2       573200     7.86      4095971        0        0     14.76      0.28         -           -         4.4
+    3      1604208    22.00     11263950        0        0     40.66      0.77         -           -        18.4
+    4      3132738    42.97     21934685        0        0     74.65      1.75         -           -        47.8
+    5      5148311    70.61     36043361        0        0    118.88      3.42         -           -        98.2
+    6      7670995   105.21     53668317        0        0    173.14      5.60         -           -       175.6
+    7     10688836   146.60     74761162        0        0    237.46     10.34         -           -       285.4
+    8     14192922   194.66            0        0        0    231.99      0.00         -           -       433.1
+order-1..8 build (sequential CGAL insertion + parallel candidate step): 914.9s
+wall 922.54 s, peak RSS 11391880 KB

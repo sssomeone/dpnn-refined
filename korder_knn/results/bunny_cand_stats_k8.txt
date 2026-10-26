@@ -1,0 +1,20 @@
+data ../DPNN/data/bunny.xyz  n=72911  kmax=8  threads=48
+unique points 72911, DPNN DAG 0.65s
+
+order        cells       /n    tri edges   hidden  removed     tri s    next s    DAG pa      DAG MB     sets MB
+    1        72911     1.00       573200        0        0      0.85      0.02     16.66           -         0.3
+    2       573200     7.86      4095971        0        0      9.02      0.26         -           -         4.4
+      C(u) for k=2: mean 16.7 (8.36 k), median 16, p90 22, p99 34, max 116; total 37.2 MB as 32-byte entries (0.0s)
+    3      1604208    22.00     11263950        0        0      8.86      0.75         -           -        18.4
+      C(u) for k=3: mean 29.0 (9.67 k), median 28, p90 37, p99 58, max 186; total 64.5 MB as 32-byte entries (0.1s)
+    4      3132738    42.97     21934685        0        0     10.62      1.72         -           -        47.8
+      C(u) for k=4: mean 39.6 (9.90 k), median 38, p90 51, p99 80, max 237; total 88.1 MB as 32-byte entries (0.4s)
+    5      5148311    70.61     36043361        0        0     17.28      4.00         -           -        98.2
+      C(u) for k=5: mean 49.8 (9.95 k), median 47, p90 64, p99 101, max 294; total 110.7 MB as 32-byte entries (1.1s)
+    6      7670995   105.21     53668317        0        0     43.44      6.06         -           -       175.6
+      C(u) for k=6: mean 60.0 (10.00 k), median 57, p90 77, p99 122, max 363; total 133.6 MB as 32-byte entries (2.5s)
+    7     10688836   146.60     74761162        0        0     31.97      8.58         -           -       285.4
+      C(u) for k=7: mean 69.9 (9.98 k), median 66, p90 90, p99 143, max 431; total 155.4 MB as 32-byte entries (4.8s)
+    8     14192922   194.66     99265233        0        0     79.00      0.00         -           -       433.1
+      C(u) for k=8: mean 79.6 (9.95 k), median 75, p90 103, p99 162, max 485; total 177.1 MB as 32-byte entries (7.7s)
+order-1..8 build: 222.4s (orders with a DAG: sequential BRIO insertion; others: CGAL parallel insertion (TBB))
