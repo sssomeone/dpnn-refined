@@ -1,0 +1,50 @@
+# Builds the layered-DPNN tools without CMake (CMakeLists.txt needs CMake >= 3.29).
+#   make -f Makefile.layered CGAL_INC=/path/to/CGAL-5.6.1/include
+# CGAL >= 5.1 (header-only), Eigen3 and Boost headers are required; Eigen and
+# dpnn.cpp are only needed for the `--original` comparison in bench_layered.
+CGAL_INC  ?= ../deps/CGAL-5.6.1/include
+EIGEN_INC ?= /usr/include/eigen3
+STUB_INC  ?= ../deps/stubs
+BUILD     ?= build_layered
+CXX       ?= g++
+CXXFLAGS  ?= -O3 -march=native -std=c++17 -fopenmp -DNDEBUG
+
+INC = -I src -I $(CGAL_INC)
+HDR = src/lp3.h src/dpnn_layered.h src/dpnn_compact.h src/dpnn_flat.h src/dpnn_refined.h
+
+all: $(BUILD)/bench_layered $(BUILD)/analyze_combinatorial $(BUILD)/test_lp3 $(BUILD)/test_layered $(BUILD)/example_refined \
+     $(BUILD)/bench_dtree $(BUILD)/analyze_decision
+
+$(BUILD):
+	mkdir -p $(BUILD)
+
+# STUB_INC provides an empty CGAL/draw_triangulation_3.h: dpnn.cpp includes the
+# Qt viewer header but never uses it.
+$(BUILD)/bench_layered: src/bench_layered.cpp src/dpnn.cpp $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) -DWITH_ORIGINAL -I $(STUB_INC) $(INC) -I $(EIGEN_INC) $< -o $@
+
+$(BUILD)/analyze_combinatorial: src/analyze_combinatorial.cpp $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) $(INC) $< -o $@
+
+$(BUILD)/test_layered: src/test_layered.cpp $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) $(INC) $< -o $@
+
+$(BUILD)/example_refined: src/example_refined.cpp $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) $(INC) $< -o $@
+
+# decision trees inside the states (LAYERED_README.md §9).  -ffp-contract=off: the
+# tree and the sequential scan must round every distance identically (they are
+# compared query by query).
+$(BUILD)/bench_dtree: src/bench_dtree.cpp src/dpnn_dtree.h $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) -ffp-contract=off $(INC) $< -o $@
+
+$(BUILD)/analyze_decision: src/analyze_decision.cpp src/dpnn_dtree.h $(HDR) | $(BUILD)
+	$(CXX) $(CXXFLAGS) -ffp-contract=off $(INC) $< -o $@
+
+$(BUILD)/test_lp3: src/test_lp3.cpp src/lp3.h | $(BUILD)
+	$(CXX) $(CXXFLAGS) -I src $< -o $@
+
+clean:
+	rm -rf $(BUILD)
+
+.PHONY: all clean

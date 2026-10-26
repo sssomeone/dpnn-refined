@@ -50,3 +50,16 @@ message(STATUS "=== Build Configuration ===")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Using -O3 optimization for Release build")
 message(STATUS "===============================")
+
+# -------------------- 分层历史信息 DPNN（见 LAYERED_README.md） --------------------
+find_package(OpenMP)
+foreach(tool bench_layered analyze_combinatorial test_lp3 test_layered example_refined)
+    add_executable(${tool} src/${tool}.cpp)
+    target_include_directories(${tool} PRIVATE ${EIGEN3_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/src)
+    target_link_libraries(${tool} PRIVATE CGAL::CGAL Boost::boost)
+    if(OpenMP_CXX_FOUND)
+        target_link_libraries(${tool} PRIVATE OpenMP::OpenMP_CXX)
+    endif()
+endforeach()
+# bench_layered 可以同时计时原版 dpnn.cpp
+target_compile_definitions(bench_layered PRIVATE WITH_ORIGINAL)
