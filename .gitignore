@@ -1,0 +1,9 @@
+# build outputs
+build/
+build_*/
+DPNN/compare_original
+*.o
+
+# third-party sources fetched separately (see README.md)
+deps/CGAL-5.6.1/
+deps/nanoflann/

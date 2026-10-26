@@ -1,0 +1,5 @@
+n=72911 order=brio  2-paths: 21208328
+  exact-realizable 23.1%  |  a in Parents(c) 26.6%
+  realizable but a not in Parents(c): 16.4% of realizable  (a comb-only filter would DROP these)
+  a in Parents(c) but not realizable: 27.5% of comb-kept  (wasted comparisons)
+queries (box2x, 200000): exact level-1 112.90 cmp/query; comb-filtered 48.68 cmp/query, wrong answers 82.921% (mean distance excess of wrong ones 33.73%)

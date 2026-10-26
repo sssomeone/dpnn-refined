@@ -1,0 +1,97 @@
+data uniform:20000  n=20000  order=brio  threads=48
+DAG: 20000 nodes, 313800 edges (avg |Parents| 15.69), 0.19s
+level 1: 313801 states, 1228056 entries (3.91 / state), 5014379 LPs (avg 33.9 half-spaces), 0.58s
+level 2: 1228057 states, 2849693 entries (2.32 / state), 6205190 LPs (avg 50.4 half-spaces), 1.19s
+level 3: 2849694 states, 5011318 entries (1.76 / state), 7908036 LPs (avg 66.9 half-spaces), 2.07s
+level 4: 5011319 states, 7438307 entries (1.48 / state), 9850023 LPs (avg 83.1 half-spaces), 3.69s
+level 5: 7438308 states, 9865966 entries (1.33 / state), 11746908 LPs (avg 98.7 half-spaces), 6.12s
+level 6: 9865967 states, 12098003 entries (1.23 / state), 13360933 LPs (avg 113.6 half-spaces), 9.96s
+level 7: 12098004 states, 14019112 entries (1.16 / state), 14528600 LPs (avg 127.8 half-spaces), 12.89s
+level 8: 14019113 states, 15587474 entries (1.11 / state), 15136320 LPs (avg 141.4 half-spaces), 10.75s
+memory: dpnn.cpp layout 1.8 MB, +level-1 bitmasks 3.4 MB, flat L0 10.2 MB (f32: 5.6 MB), flat L1 47.1 MB (f32: 24.0 MB), flat L2 124.4 MB (f32: 62.7 MB), flat L3 239.9 MB (f32: 120.4 MB), flat L4 379.9 MB (f32: 190.4 MB), flat L5 528.1 MB (f32: 264.5 MB), flat L6 670.3 MB (f32: 335.6 MB), flat L7 797.0 MB (f32: 399.0 MB), flat L8 903.5 MB (f32: 452.2 MB)
+
+== queries: box2x (200000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            144.93    10.90       0.5338          ref
+L1 bitmask (+4B/edge)       91.59    10.90       0.6078       200000
+flat L0 single             144.93    10.90       0.5048       200000
+flat L0 batch16                                  0.4926       200000
+f32 L0 single                                    0.6423       200000   (exact rechecks 0.0001 / query)
+f32 L0 batch16                                   0.7028       200000
+flat L1 single              91.59    10.90       0.5586       200000
+flat L1 batch16                                  0.4638       200000
+f32 L1 single                                    0.6217       200000   (exact rechecks 0.0001 / query)
+f32 L1 batch16                                   0.5930       200000
+flat L2 single              67.45    10.90       0.6247       200000
+flat L2 batch16                                  0.4294       200000
+f32 L2 single                                    0.6235       200000   (exact rechecks 0.0001 / query)
+f32 L2 batch16                                   0.5304       200000
+flat L3 single              55.55    10.90       0.6144       200000
+flat L3 batch16                                  0.3979       200000
+f32 L3 single                                    0.6423       200000   (exact rechecks 0.0001 / query)
+f32 L3 batch16                                   0.4957       200000
+flat L4 single              49.91    10.90       0.7165       200000
+flat L4 batch16                                  0.4010       200000
+f32 L4 single                                    0.6866       200000   (exact rechecks 0.0001 / query)
+f32 L4 batch16                                   0.4862       200000
+flat L5 single              47.04    10.90       0.7537       200000
+flat L5 batch16                                  0.3972       200000
+f32 L5 single                                    0.7356       200000   (exact rechecks 0.0001 / query)
+f32 L5 batch16                                   0.4745       200000
+flat L6 single              45.71    10.90       0.7568       200000
+flat L6 batch16                                  0.3859       200000
+f32 L6 single                                    0.7352       200000   (exact rechecks 0.0001 / query)
+f32 L6 batch16                                   0.4687       200000
+flat L7 single              44.92    10.90       0.7818       200000
+flat L7 batch16                                  0.3840       200000
+f32 L7 single                                    0.7754       200000   (exact rechecks 0.0001 / query)
+f32 L7 batch16                                   0.4700       200000
+flat L8 single              44.53    10.90       0.8429       200000
+flat L8 batch16                                  0.3920       200000
+f32 L8 single                                    0.7866       200000   (exact rechecks 0.0001 / query)
+f32 L8 batch16                                   0.4665       200000
+brute force: 0 / 2000 reference answers are not at minimum distance
+
+== queries: near (200000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            138.68    11.30       0.5557          ref
+L1 bitmask (+4B/edge)       93.86    11.30       0.6917       200000
+flat L0 single             138.68    11.30       0.5556       200000
+flat L0 batch16                                  0.5231       200000
+f32 L0 single                                    0.6640       200000   (exact rechecks 0.0002 / query)
+f32 L0 batch16                                   0.6942       200000
+flat L1 single              93.86    11.30       0.7304       200000
+flat L1 batch16                                  0.5978       200000
+f32 L1 single                                    0.8559       200000   (exact rechecks 0.0002 / query)
+f32 L1 batch16                                   0.6427       200000
+flat L2 single              72.92    11.30       1.0438       200000
+flat L2 batch16                                  0.5502       200000
+f32 L2 single                                    0.8741       200000   (exact rechecks 0.0002 / query)
+f32 L2 batch16                                   0.5886       200000
+flat L3 single              62.36    11.30       1.0336       200000
+flat L3 batch16                                  0.5457       200000
+f32 L3 single                                    1.0489       200000   (exact rechecks 0.0002 / query)
+f32 L3 batch16                                   0.5828       200000
+flat L4 single              57.00    11.30       1.2188       200000
+flat L4 batch16                                  0.5237       200000
+f32 L4 single                                    1.0340       200000   (exact rechecks 0.0002 / query)
+f32 L4 batch16                                   0.5340       200000
+flat L5 single              54.29    11.30       1.0917       200000
+flat L5 batch16                                  0.5043       200000
+f32 L5 single                                    0.9541       200000   (exact rechecks 0.0002 / query)
+f32 L5 batch16                                   0.5288       200000
+flat L6 single              53.04    11.30       1.1328       200000
+flat L6 batch16                                  0.5021       200000
+f32 L6 single                                    1.0982       200000   (exact rechecks 0.0002 / query)
+f32 L6 batch16                                   0.5259       200000
+flat L7 single              52.36    11.30       1.1666       200000
+flat L7 batch16                                  0.4878       200000
+f32 L7 single                                    1.0931       200000   (exact rechecks 0.0002 / query)
+f32 L7 batch16                                   0.5169       200000
+flat L8 single              52.01    11.30       1.1352       200000
+flat L8 batch16                                  0.4856       200000
+f32 L8 single                                    1.1785       200000   (exact rechecks 0.0002 / query)
+f32 L8 batch16                                   0.5338       200000
+brute force: 0 / 2000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED

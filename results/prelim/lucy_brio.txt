@@ -1,0 +1,70 @@
+data data/lucy.xyz  n=1018219  order=brio  threads=48
+DAG: 1018219 nodes, 17400057 edges (avg |Parents| 17.09), 10.30s
+level 1: 17400058 states, 70591342 entries (4.06 / state), 319279300 LPs (avg 47.1 half-spaces), 62.88s
+level 2: 70591343 states, 169027636 entries (2.39 / state), 381951905 LPs (avg 64.2 half-spaces), 93.98s
+memory: dpnn.cpp layout 97.4 MB, +level-1 bitmasks 189.4 MB, flat L0 562.1 MB (f32: 304.3 MB), flat L1 2685.3 MB (f32: 1365.9 MB), flat L2 7312.6 MB (f32: 3679.6 MB)
+end extract delaunay result
+original dpnn.cpp build: 8.32s
+
+== queries: box2x (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            332.87    15.22       1.5502          ref
+L1 bitmask (+4B/edge)      161.72    15.22       1.3805      1000000
+flat L0 single             332.87    15.22       1.1741      1000000
+flat L0 batch16                                  1.0800      1000000
+f32 L0 single                                    1.6327      1000000   (exact rechecks 0.0335 / query)
+f32 L0 batch16                                   1.4592      1000000
+flat L1 single             161.72    15.22       1.2509      1000000
+flat L1 batch16                                  1.0006      1000000
+f32 L1 single                                    1.3067      1000000   (exact rechecks 0.0335 / query)
+f32 L1 batch16                                   1.0188      1000000
+flat L2 single             111.24    15.22       1.2165      1000000
+flat L2 batch16                                  0.8188      1000000
+f32 L2 single                                    1.2593      1000000   (exact rechecks 0.0335 / query)
+f32 L2 batch16                                   0.8639      1000000
+dpnn.cpp (original)                              1.5798      1000000
+brute force: 0 / 5000 reference answers are not at minimum distance
+
+== queries: near (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            237.28    15.62       2.0735          ref
+L1 bitmask (+4B/edge)      153.78    15.62       2.7049      1000000
+flat L0 single             237.28    15.62       1.7206      1000000
+flat L0 batch16                                  1.3763      1000000
+f32 L0 single                                    1.7437      1000000   (exact rechecks 0.0052 / query)
+f32 L0 batch16                                   1.4129      1000000
+flat L1 single             153.78    15.62       2.1604      1000000
+flat L1 batch16                                  1.3113      1000000
+f32 L1 single                                    1.6880      1000000   (exact rechecks 0.0052 / query)
+f32 L1 batch16                                   1.1588      1000000
+flat L2 single             116.64    15.62       2.3790      1000000
+flat L2 batch16                                  1.4738      1000000
+f32 L2 single                                    1.8999      1000000   (exact rechecks 0.0052 / query)
+f32 L2 batch16                                   1.2365      1000000
+dpnn.cpp (original)                              2.3811      1000000
+brute force: 0 / 5000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED
+	Command being timed: "./build_layered/bench_layered data/lucy.xyz --levels 2 --queries 1000000 --check 5000 --threads 48 --original"
+	User time (seconds): 6050.23
+	System time (seconds): 80.31
+	Percent of CPU this job got: 1445%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:04.09
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 32197608
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 19279584
+	Voluntary context switches: 10781
+	Involuntary context switches: 18116
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

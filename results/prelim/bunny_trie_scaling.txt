@@ -1,0 +1,32 @@
+=== bunny sub 5000
+DAG: 5000 nodes, 78603 edges (avg |Parents| 15.72), 0.05s
+trie: 5124974 nodes (1024.99 / point), max depth 28, 34565740 LPs (avg 175.0 half-spaces), 10.48s
+flat L0 single             119.76     8.72       0.3598       100000
+flat trie single            49.96     8.72       0.4219       100000
+flat L0 single             114.32     8.83       0.3955       100000
+flat trie single            51.28     8.83       0.4072       100000
+ALL CHECKS PASSED
+=== bunny sub 10000
+DAG: 10000 nodes, 161643 edges (avg |Parents| 16.16), 0.09s
+trie: 11241849 nodes (1124.18 / point), max depth 32, 78516806 LPs (avg 199.8 half-spaces), 23.45s
+flat L0 single             140.19    10.38       0.4482       100000
+flat trie single            49.41    10.38       0.6334       100000
+flat L0 single             131.10    10.14       0.4796       100000
+flat trie single            53.20    10.14       0.5963       100000
+ALL CHECKS PASSED
+=== bunny sub 20000
+DAG: 20000 nodes, 328614 edges (avg |Parents| 16.43), 0.18s
+trie: 23673021 nodes (1183.65 / point), max depth 33, 166721561 LPs (avg 206.7 half-spaces), 41.55s
+flat L0 single             151.54    11.30       0.5162       100000
+flat trie single            49.26    11.30       0.8754       100000
+flat L0 single             143.41    10.56       0.5596       100000
+flat trie single            54.98    10.56       0.8806       100000
+ALL CHECKS PASSED
+=== bunny sub 40000
+DAG: 40000 nodes, 663838 edges (avg |Parents| 16.60), 0.38s
+trie: 49829439 nodes (1245.74 / point), max depth 34, 355059949 LPs (avg 223.5 half-spaces), 131.97s
+flat L0 single             169.04    10.96       0.6114       100000
+flat trie single            57.68    10.96       1.0215       100000
+flat L0 single             157.21    11.26       0.7795       100000
+flat trie single            60.03    11.26       1.1723       100000
+ALL CHECKS PASSED

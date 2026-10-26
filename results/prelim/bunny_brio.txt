@@ -1,0 +1,68 @@
+data data/bunny.xyz  n=72911  order=brio  threads=48
+DAG: 72911 nodes, 1212997 edges (avg |Parents| 16.64), 0.68s
+level 1: 1212998 states, 4885833 entries (4.03 / state), 21208328 LPs (avg 40.2 half-spaces), 3.42s
+level 2: 4885834 states, 11630627 entries (2.38 / state), 26024292 LPs (avg 58.5 half-spaces), 6.04s
+level 3: 11630628 states, 20906621 entries (1.80 / state), 33333830 LPs (avg 77.2 half-spaces), 11.74s
+trie: 97321542 nodes (1334.80 / point), max depth 36, 722701452 LPs (avg 242.5 half-spaces), 274.81s
+memory: dpnn.cpp layout 6.9 MB, +level-1 bitmasks 13.1 MB, flat L0 39.2 MB, flat L1 186.1 MB, flat L2 504.0 MB, flat L3 993.0 MB, flat trie 5940.0 MB
+end extract delaunay result
+original dpnn.cpp build: 0.55s
+
+== queries: box2x (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            184.05    12.29       0.7651          ref
+L1 bitmask (+4B/edge)      112.83    12.29       0.8658      1000000
+flat L0 single             184.05    12.29       0.7449      1000000
+flat L0 batch16                                  0.6965      1000000
+flat L1 single             112.83    12.29       0.8823      1000000
+flat L1 batch16                                  0.6038      1000000
+flat L2 single              83.79    12.29       0.7495      1000000
+flat L2 batch16                                  0.5818      1000000
+flat L3 single              70.68    12.29       0.7889      1000000
+flat L3 batch16                                  0.5199      1000000
+flat trie single            57.21    12.29       1.3280      1000000
+flat trie batch16                                0.5461      1000000
+dpnn.cpp (original)                              0.8134      1000000
+brute force: 0 / 20000 reference answers are not at minimum distance
+
+== queries: near (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            171.55    11.82       0.8583          ref
+L1 bitmask (+4B/edge)      113.36    11.82       1.3056      1000000
+flat L0 single             171.55    11.82       0.8805      1000000
+flat L0 batch16                                  0.7837      1000000
+flat L1 single             113.36    11.82       0.9635      1000000
+flat L1 batch16                                  0.7231      1000000
+flat L2 single              86.88    11.82       1.1884      1000000
+flat L2 batch16                                  0.7356      1000000
+flat L3 single              75.21    11.82       1.0030      1000000
+flat L3 batch16                                  0.6280      1000000
+flat trie single            64.02    11.82       1.3185      1000000
+flat trie batch16                                0.5958      1000000
+dpnn.cpp (original)                              0.8503      1000000
+brute force: 0 / 20000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED
+	Command being timed: "/tmp/claude-1004/-home-qinghao-project-dpnn-smallsample/caa53609-6b2b-4946-9cb1-8e66f64ddc09/scratchpad/build/bench data/bunny.xyz --levels 3 --trie --queries 1000000 --check 20000 --threads 48 --original"
+	User time (seconds): 13029.66
+	System time (seconds): 53.57
+	Percent of CPU this job got: 3088%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:03.57
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 20836932
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 12296042
+	Voluntary context switches: 7215
+	Involuntary context switches: 25211
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

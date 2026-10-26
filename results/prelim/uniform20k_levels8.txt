@@ -1,0 +1,31 @@
+level 1: 313801 states, 1227582 entries (3.91 / state), 5014379 LPs (avg 33.9 half-spaces), 0.91s
+level 2: 1227583 states, 2847973 entries (2.32 / state), 6202136 LPs (avg 50.4 half-spaces), 1.84s
+level 3: 2847974 states, 5007711 entries (1.76 / state), 7902316 LPs (avg 66.9 half-spaces), 3.45s
+level 4: 5007712 states, 7432202 entries (1.48 / state), 9841847 LPs (avg 83.1 half-spaces), 5.91s
+level 5: 7432203 states, 9856899 entries (1.33 / state), 11735997 LPs (avg 98.7 half-spaces), 9.33s
+level 6: 9856900 states, 12085740 entries (1.23 / state), 13347123 LPs (avg 113.6 half-spaces), 13.50s
+level 7: 12085741 states, 14003601 entries (1.16 / state), 14511971 LPs (avg 127.8 half-spaces), 18.01s
+level 8: 14003602 states, 15568964 entries (1.11 / state), 15117417 LPs (avg 141.4 half-spaces), 21.80s
+== queries: box2x (200000)
+index                   cmp/query    jumps     us/query        agree
+flat L0 single             144.93    10.90       0.4942       200000
+flat L1 single              91.59    10.90       0.5110       200000
+flat L2 single              67.45    10.90       0.5890       200000
+flat L3 single              55.55    10.90       0.6509       200000
+flat L4 single              49.91    10.90       0.6602       200000
+flat L5 single              47.04    10.90       0.5241       200000
+flat L6 single              45.71    10.90       0.6616       200000
+flat L7 single              44.91    10.90       0.7726       200000
+flat L8 single              44.52    10.90       0.7209       200000
+== queries: near (200000)
+index                   cmp/query    jumps     us/query        agree
+flat L0 single             138.68    11.30       0.5859       200000
+flat L1 single              93.85    11.30       0.8194       200000
+flat L2 single              72.92    11.30       0.9715       200000
+flat L3 single              62.36    11.30       1.0275       200000
+flat L4 single              57.00    11.30       0.9042       200000
+flat L5 single              54.28    11.30       0.7215       200000
+flat L6 single              53.03    11.30       0.9478       200000
+flat L7 single              52.36    11.30       1.0795       200000
+flat L8 single              52.01    11.30       1.1282       200000
+ALL CHECKS PASSED

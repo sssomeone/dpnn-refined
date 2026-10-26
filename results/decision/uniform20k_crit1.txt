@@ -1,0 +1,27 @@
+data uniform:20000  n=20000  order=brio  threads=48  train=200000 x both  budget=4  crit=1
+DAG + levels: 2.7s
+
+index      states     seq MB     dt MB     LP calls   tests/st  forced/st    chains  build s
+L0          20000       10.2      18.3    101709882      29.01      0.007       539     13.5
+L1         313801       47.0      52.4    127885888       4.47      0.444       193     13.7
+L2        1227929      124.4     113.4    134867784       2.03      0.527        89     21.9
+
+== queries: box2x (200000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   144.93    10.90          -          ref
+L0 dtree                 123.11    10.90          -       200000
+L1 seq                    91.59    10.90          -          ref
+L1 dtree                  69.34    10.90          -       200000
+L2 seq                    67.45    10.90          -          ref
+L2 dtree                  48.09    10.90          -       200000
+
+== queries: near (200000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   138.68    11.30          -          ref
+L0 dtree                 115.31    11.30          -       200000
+L1 seq                    93.86    11.30          -          ref
+L1 dtree                  70.28    11.30          -       200000
+L2 seq                    72.92    11.30          -          ref
+L2 dtree                  54.34    11.30          -       200000
+
+ALL CHECKS PASSED

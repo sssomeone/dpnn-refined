@@ -1,0 +1,43 @@
+data data/bunny.xyz  n=10000  order=brio  threads=48
+DAG: 10000 nodes, 161643 edges (avg |Parents| 16.16), 0.09s
+level 1: 161644 states, 642561 entries (3.98 / state), 2670920 LPs (avg 38.1 half-spaces), 0.37s
+trie: 11272345 nodes (1127.23 / point), max depth 32, 78727625 LPs (avg 199.9 half-spaces), 21.80s
+memory: dpnn.cpp layout 0.9 MB, +level-1 bitmasks 1.7 MB, flat L0 5.2 MB (f32: 2.8 MB), flat L1 24.5 MB (f32: 12.5 MB), flat trie 688.0 MB (f32: 344.2 MB)
+
+== queries: box2x (100000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            140.19    10.38       0.4856          ref
+L1 bitmask (+4B/edge)       89.66    10.38       0.5451       100000
+flat L0 single             140.19    10.38       0.4453       100000
+flat L0 batch16                                  0.4442       100000
+f32 L0 single                                    0.5744       100000   (exact rechecks 0.0010 / query)
+f32 L0 batch16                                   0.6525       100000
+flat L1 single              89.66    10.38       0.4423       100000
+flat L1 batch16                                  0.3948       100000
+f32 L1 single                                    0.5080       100000   (exact rechecks 0.0010 / query)
+f32 L1 batch16                                   0.5393       100000
+flat trie single            49.41    10.38       0.5474       100000
+flat trie batch16                                0.3333       100000
+f32 trie single                                  0.6481       100000   (exact rechecks 0.0010 / query)
+f32 trie batch16                                 0.4512       100000
+brute force: 0 / 1000 reference answers are not at minimum distance
+
+== queries: near (100000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            131.10    10.14       0.4760          ref
+L1 bitmask (+4B/edge)       89.47    10.14       0.5722       100000
+flat L0 single             131.10    10.14       0.4825       100000
+flat L0 batch16                                  0.4573       100000
+f32 L0 single                                    0.5797       100000   (exact rechecks 0.0001 / query)
+f32 L0 batch16                                   0.6333       100000
+flat L1 single              89.47    10.14       0.5443       100000
+flat L1 batch16                                  0.4424       100000
+f32 L1 single                                    0.5514       100000   (exact rechecks 0.0001 / query)
+f32 L1 batch16                                   0.5396       100000
+flat trie single            53.20    10.14       0.5711       100000
+flat trie batch16                                0.3419       100000
+f32 trie single                                  0.5692       100000   (exact rechecks 0.0001 / query)
+f32 trie batch16                                 0.4472       100000
+brute force: 0 / 1000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED

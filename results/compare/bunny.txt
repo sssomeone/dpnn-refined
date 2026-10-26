@@ -1,0 +1,19 @@
+data data/bunny.xyz n=72911 log2(n)=16.154 H_n=11.774 threads=48
+RESULT original BRIO build 0.53 s
+RESULT original BRIO query box  0.7660 us (min of 5), wrong 147649  [0]
+RESULT original BRIO query near 0.8327 us (min of 5), wrong 149276  [0]
+RESULT original FPS  build 1.24 s
+RESULT original FPS  query box  0.6169 us (min of 5), wrong 147649  [0]
+RESULT original FPS  query near 0.6556 us (min of 5), wrong 149276  [0]
+RESULT ours BRIO 0 layers            build 0.70 s, 39.2 MB
+RESULT ours BRIO 1 layer             build 1.41 s, 186.5 MB
+RESULT ours BRIO 2 layers            build 2.97 s, 505.8 MB
+RESULT ours BRIO 3 layers            build 6.18 s, 997.5 MB
+RESULT ours BRIO 3 layers coarse16   build 1.69 s, 135.0 MB
+RESULT ours FPS 1 layer              build 1.71 s, 156.5 MB
+RESULT ours FPS 2 layers             build 2.76 s, 400.5 MB
+RESULT ours FPS 2 layers float       build 2.72 s, 201.9 MB
+RESULT ours FPS 3 layers             build 5.19 s, 722.6 MB
+RESULT ours BRIO all layers (trie)   build 87.25 s, 5986.8 MB
+RESULT entropy box : H = 12.794 bits (Miller-Madow 12.800), 72410 distinct answers of 72911 points
+RESULT entropy near: H = 16.147 bits (Miller-Madow 16.153), 72911 distinct answers of 72911 points

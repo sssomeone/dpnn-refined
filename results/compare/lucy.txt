@@ -1,0 +1,16 @@
+data data/lucy.xyz n=1018219 log2(n)=19.958 H_n=14.411 threads=48
+RESULT original BRIO build 8.54 s
+RESULT original BRIO query box  1.6214 us (min of 5), wrong 145102  [1]
+RESULT original BRIO query near 2.0729 us (min of 5), wrong 169347  [0]
+RESULT original FPS  build 33.07 s
+RESULT original FPS  query box  1.5156 us (min of 5), wrong 145102  [1]
+RESULT original FPS  query near 1.7560 us (min of 5), wrong 169347  [0]
+RESULT ours BRIO 0 layers            build 10.62 s, 562.1 MB
+RESULT ours BRIO 1 layer             build 20.58 s, 2715.9 MB
+RESULT ours BRIO 2 layers            build 44.81 s, 7457.8 MB
+RESULT ours BRIO 3 layers coarse16   build 25.90 s, 2019.5 MB
+RESULT ours FPS 1 layer              build 39.80 s, 2252.2 MB
+RESULT ours FPS 2 layers             build 59.61 s, 5871.0 MB
+RESULT ours FPS 2 layers float       build 58.41 s, 2958.8 MB
+RESULT entropy box : H = 12.540 bits (Miller-Madow 12.566), 359276 distinct answers of 1018219 points
+RESULT entropy near: H = 19.869 bits (Miller-Madow 19.942), 1018073 distinct answers of 1018219 points

@@ -1,0 +1,48 @@
+data data/bunny.xyz  n=72911  order=brio  threads=48  train=1000000 x both  budget=4  crit=2
+DAG + levels: 19.0s
+
+index      states     seq MB     dt MB     LP calls   tests/st  forced/st    chains  build s
+L0          72911       39.2      63.2    366724615      27.40      0.006      2668     41.8
+L1        1212998      186.5     200.3    604114247       4.41      0.457       983     65.8
+L2        4897894      505.8     452.0    664637040       2.02      0.541       454     94.8
+L3       11676219      997.5     819.4    719989158       1.30      0.567       321    142.4
+
+== queries: box2x (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   184.05    12.29     1.2775          ref
+L0 seq batch16                               1.1386             
+L0 dtree                 163.41    12.29     1.8601      1000000
+L0 dtree batch16                             2.2342      1000000
+L1 seq                   112.87    12.29     1.8420          ref
+L1 seq batch16                               1.2439             
+L1 dtree                  84.54    12.29     2.9433      1000000
+L1 dtree batch16                             2.4045      1000000
+L2 seq                    83.82    12.29     1.0824          ref
+L2 seq batch16                               0.8022             
+L2 dtree                  61.92    12.29     1.6634      1000000
+L2 dtree batch16                             1.4127      1000000
+L3 seq                    70.70    12.29     1.9786          ref
+L3 seq batch16                               1.0381             
+L3 dtree                  53.68    12.29     2.2620      1000000
+L3 dtree batch16                             1.3921      1000000
+
+== queries: near (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   171.55    11.82     1.5394          ref
+L0 seq batch16                               1.4072             
+L0 dtree                 150.13    11.82     2.3888      1000000
+L0 dtree batch16                             2.6923      1000000
+L1 seq                   113.42    11.82     2.5631          ref
+L1 seq batch16                               1.6913             
+L1 dtree                  86.43    11.82     4.4233      1000000
+L1 dtree batch16                             3.2013      1000000
+L2 seq                    86.93    11.82     1.4878          ref
+L2 seq batch16                               0.9714             
+L2 dtree                  64.59    11.82     1.9913      1000000
+L2 dtree batch16                             1.6237      1000000
+L3 seq                    75.25    11.82     2.2000          ref
+L3 seq batch16                               1.1437             
+L3 dtree                  57.21    11.82     2.7266      1000000
+L3 dtree batch16                             1.8142      1000000
+
+ALL CHECKS PASSED

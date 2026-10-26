@@ -1,0 +1,28 @@
+data data/lucy.xyz  n=1018219  order=brio  threads=48  train=1000000 x both  budget=4  crit=2
+DAG + levels: 123.8s
+
+index      states     seq MB     dt MB     LP calls   tests/st  forced/st    chains  build s
+L0        1018219      562.1     819.6   5677898586      25.37      0.005     39649    501.7
+L1       17400058     2715.9    2723.6   9940324127       4.13      0.464     14673    867.6
+L2       71594647     7457.8    6453.1  10876829084       1.95      0.546      7120   1422.1
+
+== queries: box2x (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   332.87    15.22          -          ref
+L0 dtree                 314.27    15.22          -      1000000
+L1 seq                   162.09    15.22          -          ref
+L1 dtree                 129.20    15.22          -      1000000
+L2 seq                   111.40    15.22          -          ref
+L2 dtree                  84.83    15.22          -      1000000
+
+== queries: near (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   237.28    15.62          -          ref
+L0 dtree                 220.40    15.62          -      1000000
+L1 seq                   154.15    15.62          -          ref
+L1 dtree                 127.33    15.62          -      1000000
+L2 seq                   116.94    15.62          -          ref
+L2 dtree                  94.77    15.62          -      1000000
+
+ALL CHECKS PASSED
+wall 3116.76 s, peak RSS 34970272 KB

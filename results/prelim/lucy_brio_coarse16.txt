@@ -1,0 +1,51 @@
+data data/lucy.xyz  n=1018219  order=brio  threads=48
+DAG: 1018219 nodes, 17400057 edges (avg |Parents| 17.09), 11.15s
+refining only nodes < 63638 (n/16); level 0 below
+level 1: 17400058 states, 12009961 entries (0.69 / state), 74024484 LPs (avg 42.6 half-spaces), 11.51s
+level 2: 12009962 states, 24792719 entries (2.06 / state), 70197527 LPs (avg 59.9 half-spaces), 11.22s
+level 3: 24792720 states, 41326379 entries (1.67 / state), 76910008 LPs (avg 78.0 half-spaces), 20.67s
+memory: dpnn.cpp layout 97.4 MB, flat L0 562.1 MB (f32: 304.3 MB), flat L1 833.1 MB (f32: 439.8 MB), flat L2 1319.8 MB (f32: 683.2 MB), flat L3 2000.0 MB (f32: 1023.3 MB)
+
+== queries: box2x (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            332.87    15.22       1.5807          ref
+flat L0 single             332.87    15.22       1.4148      1000000
+flat L0 batch16                                  1.1765      1000000
+f32 L0 single                                    1.5983      1000000   (exact rechecks 0.0335 / query)
+f32 L0 batch16                                   1.5033      1000000
+flat L1 single             212.69    15.22       1.3305      1000000
+flat L1 batch16                                  1.0198      1000000
+f32 L1 single                                    1.3975      1000000   (exact rechecks 0.0335 / query)
+f32 L1 batch16                                   1.2046      1000000
+flat L2 single             174.38    15.22       1.3635      1000000
+flat L2 batch16                                  1.0055      1000000
+f32 L2 single                                    1.1642      1000000   (exact rechecks 0.0335 / query)
+f32 L2 batch16                                   1.0157      1000000
+flat L3 single             157.61    15.22       1.0883      1000000
+flat L3 batch16                                  0.8112      1000000
+f32 L3 single                                    1.1266      1000000   (exact rechecks 0.0335 / query)
+f32 L3 batch16                                   0.9737      1000000
+brute force: 0 / 2000 reference answers are not at minimum distance
+
+== queries: near (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            237.28    15.62       2.0303          ref
+flat L0 single             237.28    15.62       1.8455      1000000
+flat L0 batch16                                  1.4118      1000000
+f32 L0 single                                    1.8291      1000000   (exact rechecks 0.0052 / query)
+f32 L0 batch16                                   1.4984      1000000
+flat L1 single             170.11    15.62       1.7485      1000000
+flat L1 batch16                                  1.2855      1000000
+f32 L1 single                                    1.7259      1000000   (exact rechecks 0.0052 / query)
+f32 L1 batch16                                   1.2898      1000000
+flat L2 single             140.53    15.62       1.8224      1000000
+flat L2 batch16                                  1.1911      1000000
+f32 L2 single                                    1.6836      1000000   (exact rechecks 0.0052 / query)
+f32 L2 batch16                                   1.1806      1000000
+flat L3 single             126.77    15.62       1.7438      1000000
+flat L3 batch16                                  1.1242      1000000
+f32 L3 single                                    1.6593      1000000   (exact rechecks 0.0052 / query)
+f32 L3 batch16                                   1.1170      1000000
+brute force: 0 / 2000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED

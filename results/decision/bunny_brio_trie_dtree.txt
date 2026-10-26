@@ -1,0 +1,39 @@
+data data/bunny.xyz  n=72911  order=brio  threads=48  train=1000000 x both  budget=4  crit=2
+DAG + levels + trie: 309.0s
+
+index      states     seq MB     dt MB     LP calls   tests/st  forced/st    chains  build s
+L0          72911       39.2      63.2    366724615      27.40      0.006      2668     50.3
+L1        1212998      186.5     200.3    604114247       4.41      0.457       983     82.1
+trie     98087358     5986.8    4354.3   1129239615       0.45      0.551       224    564.4
+
+== queries: box2x (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   184.05    12.29 -          ref
+L0 seq batch16                           -             
+L0 dtree                 163.41    12.29 -      1000000
+L0 dtree batch16                         -      1000000
+L1 seq                   112.87    12.29 -          ref
+L1 seq batch16                           -             
+L1 dtree                  84.54    12.29 -      1000000
+L1 dtree batch16                         -      1000000
+trie seq                  57.22    12.29 -          ref
+trie seq batch16                         -             
+trie dtree                46.80    12.29 -      1000000
+trie dtree batch16                       -      1000000
+
+== queries: near (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   171.55    11.82 -          ref
+L0 seq batch16                           -             
+L0 dtree                 150.13    11.82 -      1000000
+L0 dtree batch16                         -      1000000
+L1 seq                   113.42    11.82 -          ref
+L1 seq batch16                           -             
+L1 dtree                  86.43    11.82 -      1000000
+L1 dtree batch16                         -      1000000
+trie seq                  64.04    11.82 -          ref
+trie seq batch16                         -             
+trie dtree                51.56    11.82 -      1000000
+trie dtree batch16                       -      1000000
+
+ALL CHECKS PASSED

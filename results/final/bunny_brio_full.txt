@@ -1,0 +1,65 @@
+data data/bunny.xyz  n=72911  order=brio  threads=48
+DAG: 72911 nodes, 1212997 edges (avg |Parents| 16.64), 0.69s
+level 1: 1212998 states, 4898119 entries (4.04 / state), 21208328 LPs (avg 40.2 half-spaces), 3.49s
+level 2: 4898120 states, 11677082 entries (2.38 / state), 26118291 LPs (avg 58.5 half-spaces), 4.68s
+level 3: 11677083 states, 21013134 entries (1.80 / state), 33504074 LPs (avg 77.2 half-spaces), 10.85s
+trie: 98087358 nodes (1345.30 / point), max depth 36, 728291621 LPs (avg 242.7 half-spaces), 287.66s
+memory: dpnn.cpp layout 6.9 MB, +level-1 bitmasks 13.1 MB, flat L0 39.2 MB (f32: 21.3 MB), flat L1 186.5 MB (f32: 94.9 MB), flat L2 505.8 MB (f32: 254.6 MB), flat L3 997.6 MB (f32: 500.5 MB), flat trie 5986.8 MB (f32: 2995.1 MB)
+end extract delaunay result
+original dpnn.cpp build: 0.58s
+
+== queries: box2x (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            184.05    12.29       0.7748          ref
+L1 bitmask (+4B/edge)      112.87    12.29       0.8957      1000000
+flat L0 single             184.05    12.29       0.6894      1000000
+flat L0 batch16                                  0.6829      1000000
+f32 L0 single                                    0.8081      1000000   (exact rechecks 0.0041 / query)
+f32 L0 batch16                                   0.7874      1000000
+flat L1 single             112.87    12.29       0.7059      1000000
+flat L1 batch16                                  0.5991      1000000
+f32 L1 single                                    0.7341      1000000   (exact rechecks 0.0041 / query)
+f32 L1 batch16                                   0.6357      1000000
+flat L2 single              83.82    12.29       0.7302      1000000
+flat L2 batch16                                  0.5397      1000000
+f32 L2 single                                    0.7274      1000000   (exact rechecks 0.0041 / query)
+f32 L2 batch16                                   0.5659      1000000
+flat L3 single              70.70    12.29       0.7659      1000000
+flat L3 batch16                                  0.5014      1000000
+f32 L3 single                                    0.7408      1000000   (exact rechecks 0.0041 / query)
+f32 L3 batch16                                   0.5308      1000000
+flat trie single            57.22    12.29       0.9733      1000000
+flat trie batch16                                0.4744      1000000
+f32 trie single                                  0.8399      1000000   (exact rechecks 0.0041 / query)
+f32 trie batch16                                 0.4931      1000000
+dpnn.cpp (original)                              0.7682      1000000
+brute force: 0 / 20000 reference answers are not at minimum distance
+
+== queries: near (1000000)
+index                   cmp/query    jumps     us/query        agree
+dpnn.cpp layout            171.55    11.82       0.8314          ref
+L1 bitmask (+4B/edge)      113.42    11.82       1.0871      1000000
+flat L0 single             171.55    11.82       0.8585      1000000
+flat L0 batch16                                  0.7579      1000000
+f32 L0 single                                    0.9185      1000000   (exact rechecks 0.0004 / query)
+f32 L0 batch16                                   0.8101      1000000
+flat L1 single             113.42    11.82       0.9691      1000000
+flat L1 batch16                                  0.7203      1000000
+f32 L1 single                                    0.9295      1000000   (exact rechecks 0.0004 / query)
+f32 L1 batch16                                   0.6937      1000000
+flat L2 single              86.93    11.82       0.9408      1000000
+flat L2 batch16                                  0.6351      1000000
+f32 L2 single                                    0.9219      1000000   (exact rechecks 0.0004 / query)
+f32 L2 batch16                                   0.6052      1000000
+flat L3 single              75.25    11.82       0.9514      1000000
+flat L3 batch16                                  0.5843      1000000
+f32 L3 single                                    0.9135      1000000   (exact rechecks 0.0004 / query)
+f32 L3 batch16                                   0.5599      1000000
+flat trie single            64.04    11.82       0.9560      1000000
+flat trie batch16                                0.5125      1000000
+f32 trie single                                  0.8972      1000000   (exact rechecks 0.0004 / query)
+f32 trie batch16                                 0.5142      1000000
+dpnn.cpp (original)                              0.8252      1000000
+brute force: 0 / 20000 reference answers are not at minimum distance
+
+ALL CHECKS PASSED

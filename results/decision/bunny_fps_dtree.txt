@@ -1,0 +1,48 @@
+data data/bunny.xyz  n=72911  order=fps  threads=48  train=1000000 x both  budget=4  crit=2
+DAG + levels: 14.5s
+
+index      states     seq MB     dt MB     LP calls   tests/st  forced/st    chains  build s
+L0          72911       34.1      67.7    414481838      29.43      0.002      1135     44.6
+L1        1044657      156.5     178.2    440712192       4.59      0.308       157     42.9
+L2        4084380      400.5     377.9    437999131       2.03      0.374        79     55.1
+L3        9038509      722.6     635.3    459393185       1.30      0.392        63     75.3
+
+== queries: box2x (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   135.62     7.70 -          ref
+L0 seq batch16                           -             
+L0 dtree                 113.99     7.70 -      1000000
+L0 dtree batch16                         -      1000000
+L1 seq                    73.08     7.70 -          ref
+L1 seq batch16                           -             
+L1 dtree                  52.43     7.70 -      1000000
+L1 dtree batch16                         -      1000000
+L2 seq                    56.30     7.70 -          ref
+L2 seq batch16                           -             
+L2 dtree                  42.86     7.70 -      1000000
+L2 dtree batch16                         -      1000000
+L3 seq                    51.34     7.70 -          ref
+L3 seq batch16                           -             
+L3 dtree                  40.28     7.70 -      1000000
+L3 dtree batch16                         -      1000000
+
+== queries: near (1000000)
+index                 cmp/query    jumps   us/query  same as seq
+L0 seq                   121.75     8.32 -          ref
+L0 seq batch16                           -             
+L0 dtree                  98.37     8.32 -      1000000
+L0 dtree batch16                         -      1000000
+L1 seq                    69.64     8.32 -          ref
+L1 seq batch16                           -             
+L1 dtree                  49.31     8.32 -      1000000
+L1 dtree batch16                         -      1000000
+L2 seq                    54.24     8.32 -          ref
+L2 seq batch16                           -             
+L2 dtree                  41.14     8.32 -      1000000
+L2 dtree batch16                         -      1000000
+L3 seq                    49.10     8.32 -          ref
+L3 seq batch16                           -             
+L3 dtree                  38.54     8.32 -      1000000
+L3 dtree batch16                         -      1000000
+
+ALL CHECKS PASSED
